@@ -1,0 +1,68 @@
+# Parenting changing perms on /
+
+alias chown='chown --preserve-root'
+alias chmod='chmod --preserve-root'
+alias chgrp='chgrp --preserve-root'
+# Install & Update utilties
+
+alias sai="sudo apt install"
+alias sai="sudo apt-get install"
+alias sau="sudo apt update"
+alias sau="sudo apt-get update"
+alias update="sudo apt update"
+alias update="yum update"
+alias updatey="yum -y update"
+# System state
+
+alias reboot="sudo /sbin/reboot"
+alias poweroff="sudo /sbin/poweroff"
+alias halt="sudo /sbin/halt"
+alias shutdown="sudo /sbin/shutdown"
+alias flighton='sudo rfkill block all'
+alias flightoff='sudo rfkill unblock all'
+alias snr='sudo service network-manager restart'
+# Show open ports
+
+alias ports='sudo netstat -tulanp'
+# Free and Used
+
+alias meminfo="free -m -l -t"
+# Get top process eating memory
+
+alias psmem="ps auxf | sort -nr -k 4"
+alias psmem10="ps auxf | sort -nr -k 4 | head -10"
+# Get top process eating cpu
+
+alias pscpu="ps auxf | sort -nr -k 3"
+alias pscpu10="ps auxf | sort -nr -k 3 | head -10"
+# Get details of a process
+
+alias paux='ps aux | grep'
+# Get server cpu info
+
+alias cpuinfo="lscpu"
+# Older system use /proc/cpuinfo
+
+alias cpuinfo="less /proc/cpuinfo"
+# Get GPU ram on desktop / laptop
+
+alias gpumeminfo="grep -i --color memory /var/log/Xorg.0.log"
+# Resume wget by default
+
+alias wget="wget -c"
+# Grabs the disk usage in the current directory
+
+alias usage='du -ch | grep total'
+# Gets the total disk usage on your machine
+
+alias totalusage='df -hl --total | grep total'
+# Shows the individual partition usages without the temporary memory values
+
+alias partusage='df -hlT --exclude-type=tmpfs --exclude-type=devtmpfs'
+# Gives you what is using the most space. Both directories and files. Varies on current directory
+
+alias most='du -hsx * | sort -rh | head -10'
+# MacOs commands
+
+alias rp='. ~/.bash_profile'
+alias myip='ifconfig en0 | grep inet | grep -v inet6 | cut -d ' ' -f2'

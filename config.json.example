@@ -1,0 +1,103 @@
+{
+  "package_managers": {
+    "debian": {
+      "command": "apt-get",
+      "install_args": ["install", "-y"],
+      "use_sudo": true
+    },
+    "ubuntu": {
+      "command": "apt-get",
+      "install_args": ["install", "-y"],
+      "use_sudo": true
+    },
+    "rhel": {
+      "command": "yum",
+      "install_args": ["install", "-y"],
+      "use_sudo": true
+    },
+    "centos": {
+      "command": "yum",
+      "install_args": ["install", "-y"],
+      "use_sudo": true
+    },
+    "fedora": {
+      "command": "dnf",
+      "install_args": ["install", "-y"],
+      "use_sudo": true
+    },
+    "alpine": {
+      "command": "apk",
+      "install_args": ["add"],
+      "use_sudo": false
+    },
+    "arch": {
+      "command": "pacman",
+      "install_args": ["-S", "--noconfirm"],
+      "use_sudo": true
+    },
+    "macos": {
+      "command": "brew",
+      "install_args": ["install"],
+      "use_sudo": false
+    },
+    "windows": {
+      "command": "choco",
+      "install_args": ["install", "-y"],
+      "use_sudo": false
+    }
+  },
+  "environment_config": {
+    "host": {
+      "respect_sudo": true
+    },
+    "container": {
+      "respect_sudo": false
+    },
+    "kubernetes": {
+      "respect_sudo": false
+    }
+  },
+  "package_aliases": {
+    "python": {
+      "debian": "python3",
+      "rhel": "python3",
+      "alpine": "python3",
+      "arch": "python",
+      "macos": "python"
+    },
+    "git": {
+      "debian": "git",
+      "rhel": "git",
+      "alpine": "git",
+      "arch": "git",
+      "macos": "git"
+    }
+  },
+  "default_options": {
+    "debian": ["--no-install-recommends"],
+    "rhel": [],
+    "alpine": []
+  },
+  "bash_aliases": {
+    "ll": "ls -la",
+    "la": "ls -A",
+    "l": "ls -CF",
+    "sai": "sudo apt install",
+    "sau": "sudo apt update",
+    "update": "sudo apt update",
+    "upgrade": "sudo apt upgrade",
+    "ports": "sudo netstat -tulanp",
+    "meminfo": "free -m -l -t",
+    "psmem": "ps auxf | sort -nr -k 4",
+    "psmem10": "ps auxf | sort -nr -k 4 | head -10",
+    "pscpu": "ps auxf | sort -nr -k 3",
+    "pscpu10": "ps auxf | sort -nr -k 3 | head -10",
+    "paux": "ps aux | grep",
+    "cpuinfo": "lscpu",
+    "wget": "wget -c",
+    "usage": "du -ch | grep total",
+    "totalusage": "df -hl --total | grep total",
+    "partusage": "df -hlT --exclude-type=tmpfs --exclude-type=devtmpfs",
+    "most": "du -hsx * | sort -rh | head -10"
+  }
+} 
